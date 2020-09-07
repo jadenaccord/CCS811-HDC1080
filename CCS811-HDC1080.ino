@@ -22,6 +22,7 @@
 Adafruit_CCS811 ccs;
 ClosedCube_HDC1080 hdc1080;
 
+/*
 void setup() {
   Serial.begin(9600);
 
@@ -67,6 +68,53 @@ void loop() {
       Serial.println("ERROR!");
       while(1);
     }
+  }
+  delay(500);
+}
+*/
+
+// Functions with CSV logging
+void setup() {
+  Serial.begin(9600);
+
+  //Serial.println("\n\n\nCCS811 & HDC1080 test");
+
+  hdc1080.begin(0x40);
+
+  if(!ccs.begin()){
+    Serial.println("Failed to start sensor! Please check your wiring.");
+    while(1);
+  }
+
+  // Wait for the sensor to be ready
+  while(!ccs.available());
+}
+
+void loop() {
+  float temp = hdc1080.readTemperature();
+  float humid = hdc1080.readHumidity();
+  Serial.print(temp);
+  Serial.print(",");
+  Serial.print(humid);
+  Serial.print(",");
+
+  if(ccs.available()){
+    ccs.setEnvironmentalData(float(humid), float(temp));
+
+    if(!ccs.readData()){
+      Serial.print(ccs.geteCO2());
+      Serial.print(",";
+      Serial.println(ccs.getTVOC());
+    } else {
+      Serial.print("-");
+      Serial.print(",");
+      Serial.println("-");
+      while(1)
+    }
+  } else {
+    Serial.print("-");
+    Serial.print(",");
+    Serial.println("-");
   }
   delay(500);
 }
