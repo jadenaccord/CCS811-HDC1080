@@ -57,6 +57,8 @@ def show_correlation(_x, _y, _xlim, _ylim, _xlabel, _ylabel):
     plt.ylim(_ylim)
 
     coef = np.polyfit(x, y, 1)
+    print('Correlation coefficient:')
+    print(coef)
     poly1d_fn = np.poly1d(coef)
     plt.plot(x, y, 'ro', x, poly1d_fn(x), '--k', markersize=1)
     plt.show()
