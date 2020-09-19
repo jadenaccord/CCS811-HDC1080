@@ -4,6 +4,8 @@ import numpy as np
 import csv
 import pandas
 
+file_name = 'short-newFile.csv'
+
 datetimes = []
 temperatures = []
 humidities = []
@@ -60,7 +62,7 @@ def show_correlation(_x, _y, _xlim, _ylim, _xlabel, _ylabel):
     plt.show()
 
 def load_data():
-    with open('short-newFile.csv','r') as csvfile:
+    with open(file_name,'r') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             datetimes.append(pandas.to_datetime(row[0] + ' ' + row[1]))
