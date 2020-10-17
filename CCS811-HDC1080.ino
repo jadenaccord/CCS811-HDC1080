@@ -103,13 +103,13 @@ void loop() {
 
     if(!ccs.readData()){
       Serial.print(ccs.geteCO2());
-      Serial.print(",";
+      Serial.print(",");
       Serial.println(ccs.getTVOC());
     } else {
       Serial.print("-");
       Serial.print(",");
       Serial.println("-");
-      while(1)
+      while(1);
     }
   } else {
     Serial.print("-");
