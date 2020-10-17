@@ -29,4 +29,4 @@ If you are using another board, check your manufacturer's reference for the appr
   - Open the Arduino serial monitor, or serial monitor of your choice
 - To save your readings:
   - Open TeraTerm, or another serial monitor with file saving capabilities
-  - File > Save, and follow the rest of the saving dialog
+  - File > Log, and follow the rest of the saving dialog
