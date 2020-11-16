@@ -5,7 +5,7 @@ import pandas
 dates = []
 times = []
 
-with open('test.csv') as file:
+with open('file.csv') as file:
     reader = csv.reader(file, delimiter=(','), quotechar='|')
     for row in reader:
         #row_datetime = row[0] + ',' + row[1]
